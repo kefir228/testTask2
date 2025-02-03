@@ -7,7 +7,7 @@ async function getProducts(category: string) {
     return res.json()
 }
 
-export default async function CategoryPage({ params }: { params: { slug: string } }) {
+export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params
 
     if (!slug) {
