@@ -7,19 +7,17 @@ async function getProducts(category: string) {
     return res.json()
 }
 
-export const dynamicParams = true 
-
 export default async function CategoryPage({ params }: { params: { slug: string } }) {
-    const { slug } = await params 
+    const { slug } = await params
 
     if (!slug) {
-        return notFound() 
+        return notFound()
     }
 
     const products = await getProducts(slug)
 
     if (!products || products.length === 0) {
-        return notFound() 
+        return notFound()
     }
 
     return (
